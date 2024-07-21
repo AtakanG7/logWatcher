@@ -1,0 +1,77 @@
+version: '3.8'
+
+services:
+  apache:
+    build: 
+      context: .
+      dockerfile: "./webapp/Dockerfile"
+    ports:
+      - "5000:80"
+    networks:
+      - monitoring
+    restart: unless-stopped
+    labels:
+      - "com.example.description=webapp"
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    ports:
+      - "8081:8080"
+    networks:
+      - monitoring
+    restart: unless-stopped
+    labels:
+      - "com.example.description=Container Advisor"
+
+  node-exporter:
+    image: prom/node-exporter:latest
+    ports:
+      - "9100:9100"
+    networks:
+      - monitoring
+    restart: unless-stopped
+    labels:
+      - "com.example.description=Node Exporter"
+
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    networks:
+      - monitoring
+    restart: unless-stopped
+    labels:
+      - "com.example.description=Prometheus"
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "5050:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - /grafana/provisioning/dashboards/example.json:/etc/grafana/provisioning/dashboards
+    networks:
+      - monitoring
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: secret
+      GF_USERS_ALLOW_SIGN_UP: 'false'
+    restart: unless-stopped
+    labels:
+      - "com.example.description=Grafana"
+
+networks:
+  monitoring:
+    driver: bridge
+
+volumes:
+  prometheus_data:
+  grafana_data:
