@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogWatcher Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container-fluid dashboard">
+        <div class="row">
+            <div class="col-md-2 sidebar">
+                <h1>logWatcher</h1>
+                <button class="btn btn-outline-light w-100 my-2">Benchmark</button>
+                <button class="btn btn-outline-light w-100 my-2">Alerts (import.)</button>
+                <button class="btn btn-outline-light w-100 my-2">App log</button>
+                <button class="btn btn-outline-light w-100 my-2">Config</button>
+            </div>
+            <div class="col-md-10 main-content">
+                <div class="status-bar">
+                    <span class="status-item"><i class="check-icon"></i> Prometheus</span>
+                    <span class="status-item"><i class="check-icon"></i> Grafana</span>
+                    <span class="status-item"><i class="check-icon"></i> Node Exporter</span>
+                    <span class="status-item"><i class="check-icon"></i> cAdvisor</span>
+                    <span class="status-item"><i class="check-icon"></i> System Ready</span>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button class="btn btn-outline-light w-100 my-2">See visualizations</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-outline-light w-100 my-2">See metrics in prometheus</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-outline-light w-100 my-2">View node exporter</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-outline-light w-100 my-2">View cAdvisor</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

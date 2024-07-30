@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+header {
+    display: none !important;
+}
+
+footer {
+    display: none !important;
+}
+
+.css-z5fcl4{
+    padding : 4rem !important;
+    padding-top: 2rem !important;
+}
+
+.css-1cypcdb{
+    width: 150px !important;
+    background-color: transparent !important;
+}
+
+.stApp {
+    background: linear-gradient(135deg, #1E1E1E 0%, #2C2C2C 100%);
+    font-family: 'Roboto', sans-serif;
+}
+.metric-card {
+    background-color: rgba(44, 44, 44, 0.7);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+.metric-value {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.metric-label {
+    font-size: 14px;
+    color: #AAAAAA;
+    display: flex;
+    align-items: center;
+}
+.metric-icon {
+    margin-right: 5px;
+}
+.quick-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+.quick-link {
+    background-color: rgba(60, 60, 60, 0.7);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 1rem;
+    color: #FFFFFF;
+}
+.quick-link-icon {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.quick-link-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.quick-link-url {
+    font-size: 12px;
+    color: #AAAAAA;
+    word-break: break-all;
+}
+.container-status {
+    display: inline-block;
+    font-size: 12px;
+    padding: 3px 6px;
+    border-radius: 3px;
+    margin-top: 8px;
+}
+.status-running {
+    background-color: #4CAF50;
+}
+.status-starting {
+    background-color: #2196F3;
+}
+.status-exited {
+    background-color: #F44336;
+}
+.status-other {
+    background-color: #FFC107;
+}
+
+.css-mcjgwn{
+    max-height: unset !important;
+}
+
+.main-svg{
+    background-color: transparent !important;
+}
