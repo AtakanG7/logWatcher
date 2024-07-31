@@ -27,7 +27,7 @@ if [ -z "$ports" ]; then
 else
     echo "[INFO] $ports open ports detected at $(date)"
 fi
-sleep 1
+
 # Function to check if a command exists
 command_exists() {
     command -v "$1" >/dev/null 2>&1
@@ -56,7 +56,7 @@ echo '[INFO] python3 exists.'
 pip3 install -r requirements.txt >/dev/null
 echo '[INFO] requirements installed.'
 
-sleep 1
+
 if ! command_exists docker; then
     echo 'Installing docker...' >&2
     case $PACKAGE_MANAGER in
@@ -79,7 +79,7 @@ if ! command_exists docker; then
     echo "Please log out and log back in for Docker permissions to take effect."
 fi
 echo '[INFO] docker exists.'
-sleep 1
+
 if ! command_exists docker-compose; then
     echo 'Installing docker-compose...' >&2
     if command_exists pip3; then
@@ -91,9 +91,9 @@ if ! command_exists docker-compose; then
         exit 1
     fi
 fi
-sleep 1
+
 echo '[INFO] docker-compose exists.'
 echo '[INFO] Registering the image to the registry...'
-sleep 1
+
 python3 logwatcher.py $image $ports
 echo "[INFO] Script ended at $(date)"

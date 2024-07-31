@@ -19,7 +19,7 @@ services:
   application:
     container_name: application
     env_file: ./config/application/.env
-    image: atakan1927/blog001
+    image: atakan1927/blog
     networks:
     - monitoring
     ports:
