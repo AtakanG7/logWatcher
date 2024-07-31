@@ -3,7 +3,6 @@
 import docker
 from typing import List, Dict, Any, Optional
 import datetime
-
 class DockerManager:
     def __init__(self):
         self.client = docker.from_env()
@@ -23,11 +22,6 @@ class DockerManager:
                         for container_port, host_config in ports.items() 
                         if host_config]
             return []
-
-        def get_status(container):
-            status = container.attrs['State']['Status']['Health']
-            health = container.attrs['State'].get('Health', {}).get('Status')
-            return f"{status} ({health})" if health else status
 
         return [{'id': c.id, 
                 'name': c.name, 
@@ -112,8 +106,3 @@ class DockerManager:
                 return container['id']
         return None
 
-    def setEnvVar(self, container_name: str, _env: Dict[str, str]) -> None:
-        containers = self.list_containers(all=True)
-        for container in containers:
-            if container['name'] == container_name:
-                container['id'].setEnv(_env)

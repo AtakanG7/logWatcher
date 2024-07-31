@@ -96,3 +96,87 @@ footer {
 .main-svg{
     background-color: transparent !important;
 }
+
+.all-containers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.container-item {
+    background-color: #2c3e50;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: calc(33.33% - 10px);
+}
+
+.container-icon {
+    font-size: 24px;
+}
+
+.restart-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.restart-button:hover {
+    background-color: #2980b9;
+}
+
+.status-restarting {
+    background-color: #f39c12;
+}
+
+.all-containers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.container-item {
+    background-color: #2c3e50;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.container-icon {
+    font-size: 24px;
+}
+
+.container-status {
+    margin-left: auto;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.status-running {
+    background-color: #2ecc71;
+}
+
+.status-stopped {
+    background-color: #e74c3c;
+}
+
+.status-restarting {
+    background-color: #f39c12;
+}
+
+.status-other {
+    background-color: #95a5a6;
+}

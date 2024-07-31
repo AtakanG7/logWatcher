@@ -11,6 +11,42 @@ def load_css():
     with open(css_file, "r") as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
+def display_all_containers(containers):
+    st.subheader("All Containers")
+    
+    for i in range(0, len(containers), 3):
+        cols = st.columns(3)
+        for j in range(3):
+            if i + j < len(containers):
+                container = containers[i + j]
+                with cols[j]:
+                    display_container(container)
+
+def display_container(container):
+    name = container['name']
+    status = container['status']
+    
+    status_class = {
+        'running': 'status-running',
+        'exited': 'status-stopped',
+        'restarting': 'status-restarting'
+    }.get(status, 'status-other')
+    
+    st.markdown(f"""
+    <div class="container-item">
+        <span class="container-icon">🐳</span>
+        <strong>{name.upper()}</strong>
+        <div class="container-status {status_class}">{status.upper()}</div>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    if st.button(f"Restart {name}", key=f"restart_{name}_{time.time()}"):
+        try:
+            st.write('clicked')
+            docker_manager.restart_container_by_name(name)
+            st.success(f"Container {name} restarted successfully")
+        except Exception as e:
+            st.error(f"Failed to restart container {name}: {str(e)}")
 
 def main():
     st.title("LogWatcher Dashboard")
@@ -72,11 +108,10 @@ def main():
                     }.get(status, 'status-other')
                     
                     link = f"http://localhost:{ports[0].split(':')[0]}"
-                    icon = "🐳"
                     
                     st.markdown(f"""
-                    <div href={link} class="quick-link">
-                        <span class="quick-link-icon">{icon}</span>
+                    <div class="quick-link">
+                        <span class="quick-link-icon">🐳</span>
                         <strong>{name.upper()}</strong>
                         <a href={link}>{link}</a>
                         <div class="container-status {status_class}">{status.upper()}</div>
@@ -84,9 +119,14 @@ def main():
                     """, unsafe_allow_html=True)
                 st.markdown('</div>', unsafe_allow_html=True)
 
+            display_all_containers(containers)
+
         time.sleep(0.1)
 
 if __name__ == "__main__":
-    st.set_page_config(page_title="LogWatcher Dashboard", layout="wide")
-    load_css()
-    main()
+    try:
+        st.set_page_config(page_title="LogWatcher Dashboard", layout="wide")
+        load_css()
+        main()
+    except Exception as e:
+        st.error(f"Error: {e}")

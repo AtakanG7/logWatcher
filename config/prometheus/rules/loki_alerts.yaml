@@ -1,0 +1,22 @@
+groups:
+- name: loki_error_alerts
+  rules:
+  - alert: HighErrorRate
+    expr: log:error:rate5m > 0.1
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: High error rate detected
+      description: "Job {{ $labels.job }} is logging errors at a high rate"
+
+- name: example
+  rules:
+    - alert: HighCPUUsage
+      expr: 100 - (avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100) > 80
+      for: 5m
+      labels:
+        severity: warning
+      annotations:
+        summary: High CPU usage detected
+        description: CPU usage is above 80% on {{ $labels.instance }}

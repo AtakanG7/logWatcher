@@ -1,4 +1,5 @@
 import yaml
+import subprocess
 
 class DockerComposeManager:
     def __init__(self, compose_path):
@@ -39,3 +40,8 @@ class DockerComposeManager:
         else:
             raise Exception(f"Service '{service_name}' not found in compose file")
 
+    def up(self):
+        try:
+            subprocess.run(['docker-compose', 'up', '-d'], check=True)
+        except subprocess.CalledProcessError as e:
+            raise Exception(f"Error running docker-compose up: {e}")

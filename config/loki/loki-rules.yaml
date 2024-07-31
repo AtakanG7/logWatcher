@@ -1,0 +1,6 @@
+groups:
+  - name: should_fire
+    interval: 30s
+    rules:
+      - record: log:error:rate5m
+        expr: sum(rate({job=~".+"}|= "error" [5m])) by (job)
