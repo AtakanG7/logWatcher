@@ -1,11 +1,16 @@
 LogWatcher: Simplifying Docker Image Monitoring
 
+https://github.com/user-attachments/assets/5302ce2d-b788-4d97-8a7d-f8b1693bc6e9
+
 LogWatcher is an open-source software tool created by Atakan G. to simplify application monitoring for Docker images. This project provides an easy-to-use interface for developers to gain insights about their Docker applications, monitor resource usage, and optimize performance.
 Features
 
     Real-time monitoring of Docker images
     Resource usage tracking and optimization
     Error log monitoring in real-time
+
+
+
     Alerting system for critical events
     Benchmarking capabilities
     Configuration management through a user-friendly interface
