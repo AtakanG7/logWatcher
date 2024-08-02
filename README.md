@@ -81,6 +81,6 @@ License
 [Include license information here]
 Contact
 
-For questions or support, please contact Atakan G. [Include contact information if available]
+For questions or support, please contact Atakan G. from pwxcv7352@gmail.com
 
 Note: As of July 31, 2024, the AtakanG7 GitHub repository may not be publicly accessible. Please check for updates or alternative sources for the project.
