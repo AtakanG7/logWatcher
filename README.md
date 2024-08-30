@@ -76,9 +76,6 @@ For more information on the technologies and concepts used in LogWatcher, refer 
     Grafana dashboards
     Streamlit documentation
 
-License
-
-[Include license information here]
 Contact
 
 For questions or support, please contact Atakan G. from pwxcv7352@gmail.com
