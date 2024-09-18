@@ -130,3 +130,6 @@ version: '3'
 volumes:
   grafana-storage: null
   prometheus-data: null
+
+networks:
+  monitoring:
