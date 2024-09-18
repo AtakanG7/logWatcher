@@ -1,6 +1,45 @@
 #!/bin/bash
+
+# Function to clear the screen
+clear_screen() {
+    tput clear
+}
+
+# Function to display the ASCII art
+display_art() {
+    echo ' ____                _____          _____      _____                  ____   _________________      _____    ____   ____      ______        _____   '
+    echo '|    |          ____|\    \     ___|\    \    |\    \   _____    ____|\   \ /                 \ ___|\    \  |    | |    | ___|\     \   ___|\    \  '
+    echo '|    |         /     /\    \   /    /\    \   | |    | /    /|  /    /\    \\______     ______//    /\    \ |    | |    ||     \     \ |    |\    \ '
+    echo '|    |        /     /  \    \ |    |  |____|  \/     / |    || |    |  |    |  \( /    /  )/  |    |  |    ||    |_|    ||     ,_____/||    | |    |'
+    echo '|    |  ____ |     |    |    ||    |    ____  /     /_  \   \/ |    |__|    |   '' |   |   '' |    |  |____||    .-.    ||     \--''_|/|    |/____/ '
+    echo '|    | |    ||     |    |    ||    |   |    ||     // \  \   \ |    .--.    |     |   |       |    |   ____ |    | |    ||     /___/|  |    |\    \ '
+    echo '|    | |    ||\     \  /    /||    |   |_,  ||    |/   \ |    ||    |  |    |    /   //       |    |  |    ||    | |    ||     \____|\ |    | |    |'
+    echo '|____|/____/|| \_____\/____/ ||\ ___\___/  /||\ ___/\   \|   /||____|  |____|   /___//        |\ ___\/    /||____| |____||____ ''     /||____| |____|'
+    echo '|    |     || \ |    ||    | /| |   /____ / || |   | \______/ ||    |  |    |  |`   |         | |   /____/ ||    | |    ||    /_____/ ||    | |    |'
+    echo '|____|_____|/  \|____||____|/  \|___|    | /  \|___|/\ |    | ||____|  |____|  |____|          \|___|    | /|____| |____||____|     | /|____| |____|'
+    echo '  \(    )/        \(    )/       \( |____|/      \(   \|____|/   \(      )/      \(              \( |____|/   \(     )/    \( |_____|/   \(     )/  '
+    echo '   ''    ''          ''    ''         ''   )/          ''      )/       ''      ''        ''               ''   )/       ''     ''      ''    )/       ''     ''   '
+}
+
+# Blinking effect parameters
+BLINK_DURATION=0.5  # Duration for each blink in seconds
+NUM_BLINKS=10       # Number of blinks
+
+for ((i=0; i<NUM_BLINKS; i++))
+do
+    clear_screen
+    display_art
+    sleep $BLINK_DURATION
+    clear_screen
+    sleep $BLINK_DURATION
+done
+
 echo "Hey mate $USER, welcome to Log Watcher!"
 echo "Script started at $(date)"
+echo ""
+echo "##############################################"
+echo "####    🕒 Now monitoring logs in real-time...    ####"
+echo "##############################################"
 
 if [ $# -ne 1 ]; then
     echo "[Error] An image name is expected from DockerHub"
